@@ -17,3 +17,21 @@ class Stack:
         
         else:
             return "Stack is empty!"
+        
+    def peek(self):
+        try:
+            return self.stack[-1]
+        except:
+            return "Stack is empty!"
+                               
+    def get_items(self):
+        return f'stack -> {self.stack}'
+    
+    
+    def traverse(self):
+        if len(self.stack):
+            for i in self.stack:
+                print(i)
+        else:
+            print("Stack is empty!")
+
