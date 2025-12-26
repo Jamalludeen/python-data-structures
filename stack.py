@@ -35,3 +35,24 @@ class Stack:
         else:
             print("Stack is empty!")
 
+
+    def traverse(self):
+        if len(self.stack):
+            for i in self.stack:
+                print(i)
+        else:
+            print("Stack is empty!")
+    
+    def update(self, index, value):
+        if index <= (len(self.stack)-1):
+            self.stack[index] = value
+            
+    def is_empty(self):
+        return len(self.stack) == 0
+    
+    def is_full(self):
+        return len(self.stack) == self.size
+
+    def size(self):
+        return len(self.stack)
+    
