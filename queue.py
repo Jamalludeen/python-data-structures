@@ -16,5 +16,3 @@ class Queue:
             return self.queue.pop()
         else:
             return "Queue is empty!"
-        
-        
