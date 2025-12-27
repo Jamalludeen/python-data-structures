@@ -5,7 +5,6 @@ class Queue:
         self.top = 0
     
     def enqueue(self, value):
-        # self.queue.appendleft(value)
         if len(self.queue) < self.get_size:
             self.queue.append(value)
         else:
@@ -14,5 +13,17 @@ class Queue:
     def dequeue(self):
         if len(self.queue):
             return self.queue.pop()
+        else:
+            return "Queue is empty!"
+        
+    def rear(self):
+        if len(self.queue):
+            return self.queue[-1]
+        else:
+            return "Queue is empty!"  
+    
+    def front(self):
+        if len(self.queue):
+            return self.queue[0]
         else:
             return "Queue is empty!"
