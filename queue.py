@@ -45,3 +45,15 @@ class Queue:
             
     def get_items(self):
         return f'Queue -> {self.queue}'
+    
+
+if __name__ == '__main__':
+    q = Queue(10)
+    q.enqueue(1)
+    q.enqueue(5)
+    q.enqueue(7)
+    q.enqueue(10)
+    q.enqueue(77)
+    q.traverse()
+    q.dequeue()
+    q.traverse()
