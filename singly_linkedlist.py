@@ -46,12 +46,34 @@ class SinglyLinedList:
                 new_node.next = temp
                 pre.next = new_node
                 self.length += 1
+
+    def delete_start(self):
+        if self.head:
+            if self.head == self.tail:
+                self.head = self.tail = None
+            else:
+                self.head = self.head.next
+            self.length -= 1
+        print("LinkedList is empty!")
+    
+    def delete_end(self):
+        if self.head:
+            if self.head == self.tail:
+                self.head = self.tail = None
+            else:
+                temp = self.head
+                while temp.next != self.tail:
+                    temp = temp.next
+                temp.next = None
+                self.tail = temp
+            self.length -= 1
+        else:
+            print("LinkedList is empty!")
     
     def traverse(self):
         _str = ''
         temp = self.head
         while temp.next:
-            print('temp: ', temp.data)
             _str += str(temp.data) + ' -> '
             temp = temp.next
         else:
@@ -64,4 +86,8 @@ if __name__ == "__main__":
     linked_list.insert_start(20)
     linked_list.insert_start(30)
     linked_list.insert_at_position(9, 77)
+    linked_list.traverse()
+    linked_list.delete_start()
+    linked_list.traverse()
+    linked_list.delete_end()
     linked_list.traverse()
