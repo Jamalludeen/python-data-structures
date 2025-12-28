@@ -101,12 +101,25 @@ class SinglyLinedList:
             _str += str(temp.data)
         print(_str)
 
+    def search(self, index):
+        if index < 0 or index > self.length-1:
+            return "Invalid is out of range!"
+
+        else:
+            if index == 0:
+                return self.head.data
+            else:
+                temp = self.head
+                while index:
+                    temp = temp.next
+                    index -= 1
+                return temp.data
+
 if __name__ == "__main__":
     linked_list = SinglyLinedList()
     linked_list.insert_start(10)
     linked_list.insert_start(20)
     linked_list.insert_start(30)
     linked_list.insert_at_position(9, 77)
-    linked_list.traverse()
-    linked_list.delete_at_position(10)
-    linked_list.traverse()
+    result = linked_list.search(2)
+    print(result)
