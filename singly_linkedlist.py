@@ -114,6 +114,16 @@ class SinglyLinedList:
                     temp = temp.next
                     index -= 1
                 return temp.data
+            
+    def reverse(self):
+        pre = None
+        cur = self.head
+        while cur:
+            _next = cur.next
+            cur.next = pre
+            pre = cur
+            cur = _next
+        self.head = pre
 
 if __name__ == "__main__":
     linked_list = SinglyLinedList()
@@ -121,5 +131,6 @@ if __name__ == "__main__":
     linked_list.insert_start(20)
     linked_list.insert_start(30)
     linked_list.insert_at_position(9, 77)
-    result = linked_list.search(2)
-    print(result)
+    linked_list.traverse()
+    linked_list.reverse()
+    linked_list.traverse()
