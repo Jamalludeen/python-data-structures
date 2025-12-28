@@ -69,6 +69,27 @@ class SinglyLinedList:
             self.length -= 1
         else:
             print("LinkedList is empty!")
+
+    def delete_at_position(self, index):
+        if index < 0:
+            self.delete_at_position(index=0)
+
+        elif index > self.length-1:
+            self.delete_at_position(index=self.length-1)
+
+        else:
+            if index == 0:
+                self.head = self.head.next
+                self.length -= 1
+            
+            else:
+                temp = self.head
+                index = index - 1
+                while index:
+                    temp = temp.next
+                    index -= 1
+                temp.next = temp.next.next
+                self.length -= 1
     
     def traverse(self):
         _str = ''
@@ -87,7 +108,5 @@ if __name__ == "__main__":
     linked_list.insert_start(30)
     linked_list.insert_at_position(9, 77)
     linked_list.traverse()
-    linked_list.delete_start()
-    linked_list.traverse()
-    linked_list.delete_end()
+    linked_list.delete_at_position(10)
     linked_list.traverse()
