@@ -55,6 +55,23 @@ class DoublyLinkedList:
                 self.head = self.head.next
                 self.head.prev = None
             self.length -= 1
+
+    def remove_at_position(self, index):
+        if index < 0 or index >= self.length:
+            print('Index out of range!')
+        
+        if index == 0:
+            self.remove_start()
+        
+        if index == self.length - 1:
+            self.remove_end()
+        
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        temp.prev.next = temp.next
+        temp.next.prev = temp.prev
+        self.length -= 1
     
     def remove_end(self):
         if self.tail:
@@ -64,7 +81,6 @@ class DoublyLinkedList:
                 self.tail = self.tail.prev
                 self.tail.next = None
             self.length -= 1
-
 
     def traverse_forward(self):
         if not self.head:
@@ -80,9 +96,11 @@ class DoublyLinkedList:
 
 if __name__ == "__main__":
     dll = DoublyLinkedList()
-    dll.insert_start(10)
-    dll.insert_end(90)
+    dll.insert_start(1)
+    dll.insert_end(2)
+    dll.insert_end(3)
+    dll.insert_end(4)
     dll.insert_at_position(0, 77)
     print(dll.traverse_forward())
-    dll.remove_end()
+    dll.remove_at_position(1)
     print(dll.traverse_forward())
