@@ -103,6 +103,24 @@ class DoublyLinkedList:
             result += str(temp.data) + ' <-> '
             temp = temp.prev
         return result.rstrip(' <-> ')
+    
+    def search(self, index):
+        if index < 0:
+            return 'Index out of range'
+
+        elif index > self.length-1:
+            return 'Index out of range'
+
+
+        else:
+            if index == 0:
+                return self.head.data
+            else:
+                temp = self.head
+                while index:
+                    temp = temp.next
+                    index -= 1
+                return temp.data
 
 
 if __name__ == "__main__":
@@ -114,3 +132,5 @@ if __name__ == "__main__":
     dll.insert_at_position(0, 77)
     print(dll.traverse_forward())
     print(dll.traverse_backward())
+    print('----------')
+    print(dll.search(-10))
