@@ -20,6 +20,22 @@ class DoublyLinkedList:
             self.head = self.head = new_node
         self.length += 1
 
+    def insert_at_position(self, index, data):
+        if index < 0:
+            self.insert_start(data=data)
+        elif index > self.length-1:
+            self.insert_end(data=data)
+        
+        else:
+            new_node = Node(data=data)
+            temp = self.head
+            for _ in range(index-1):
+                temp = temp.next
+            new_node.next = temp.next
+            new_node.prev = temp
+            temp.next.prev = new_node
+            temp.next = new_node
+            self.length += 1
 
     def insert_end(self, data):
         new_node = Node(data=data)
