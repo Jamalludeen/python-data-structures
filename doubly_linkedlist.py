@@ -47,6 +47,25 @@ class DoublyLinkedList:
             self.head = self.tail = new_node
         self.length += 1
 
+    def remove_start(self):
+        if self.head:
+            if self.head == self.tail:
+                self.head = self.tail = None
+            else:
+                self.head = self.head.next
+                self.head.prev = None
+            self.length -= 1
+    
+    def remove_end(self):
+        if self.tail:
+            if self.tail == self.head:
+                self.head = self.tail = None
+            else:
+                self.tail = self.tail.prev
+                self.tail.next = None
+            self.length -= 1
+
+
     def traverse_forward(self):
         if not self.head:
             return 'Linked list is empty!'
@@ -64,4 +83,6 @@ if __name__ == "__main__":
     dll.insert_start(10)
     dll.insert_end(90)
     dll.insert_at_position(0, 77)
+    print(dll.traverse_forward())
+    dll.remove_end()
     print(dll.traverse_forward())
