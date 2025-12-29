@@ -92,6 +92,17 @@ class DoublyLinkedList:
             result += str(temp.data)+ ' <-> '
             temp = temp.next
         return result.rstrip(' <-> ')
+    
+    def traverse_backward(self):
+        if not self.tail:
+            return 'Linked list is empty!'
+        
+        result = ''
+        temp = self.tail
+        while temp:
+            result += str(temp.data) + ' <-> '
+            temp = temp.prev
+        return result.rstrip(' <-> ')
 
 
 if __name__ == "__main__":
@@ -102,5 +113,4 @@ if __name__ == "__main__":
     dll.insert_end(4)
     dll.insert_at_position(0, 77)
     print(dll.traverse_forward())
-    dll.remove_at_position(1)
-    print(dll.traverse_forward())
+    print(dll.traverse_backward())
