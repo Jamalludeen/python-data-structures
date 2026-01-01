@@ -127,3 +127,15 @@ class BinarySearchTree:
             self._in_order_traversal(node.right_node)
 
 
+if __name__ == "__main__":
+    bst = BinarySearchTree()
+    bst.insert(9)
+    bst.insert(7)
+    bst.insert(8)
+    bst.insert(14)
+    bst.insert(19)
+    bst.insert(10)
+    bst.in_order()
+    print("----------------")
+    bst.remove(10)
+    bst.in_order()
