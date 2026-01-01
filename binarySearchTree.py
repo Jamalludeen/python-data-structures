@@ -27,3 +27,23 @@ class BinarySearchTree:
                 self._insert_node(data=data, node=node)
             else:
                 node.right_node = Node(data=data, parent=node)
+
+    def remove(self, data):
+        if self.root:
+            self._remove_node(data, self.root)
+        else:
+            print("Tree is empty!")
+    
+    def _remove_node(self, data, node):
+        if node is None:
+            return
+        
+        if data < node.data:
+            self._remove_node(data, node.left_node)
+        
+        elif data > node.data:
+            self._remove_node(data, node.right_node)
+        
+        else:
+            if node.left_node is None and node.right_node is None:
+                print("Removing a leaf node", node.data)
