@@ -14,17 +14,17 @@ class BinarySearchTree:
         if self.root:
             self._insert_node(data, self.root)
         else:
-            self.root = Node(data=data)
+            self.root = Node(data=data, parent=None)
     
     def _insert_node(self, data, node):
         if data < node.data:
             if node.left_node:
-                self._insert_node(data=data, node=node.left_node)
+                self._insert_node(data, node.left_node)
             else:
                 node.left_node = Node(data=data, parent=node)
         else:
             if node.right_node:
-                self._insert_node(data=data, node=node)
+                self._insert_node(data, node.right_node)
             else:
                 node.right_node = Node(data=data, parent=node)
 
@@ -112,3 +112,18 @@ class BinarySearchTree:
             return self.get_predecessor(node.right_node)
         return node
     
+    def in_order(self):
+        if self.root:
+            self._in_order_traversal(self.root)
+        else:
+            print("Tree is empty")
+    
+    def _in_order_traversal(self, node):
+        if node.left_node:
+            self._in_order_traversal(node.left_node)
+        print(node.data)
+
+        if node.right_node:
+            self._in_order_traversal(node.right_node)
+
+
