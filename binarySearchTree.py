@@ -140,7 +140,22 @@ class BinarySearchTree:
         
         if node.right_node:
             self._pre_order_traversal(node.right_node)
-            
+
+    def post_order(self):
+        if self.root:
+            self._post_order_traversal(self.root)
+        else:
+            print("Tree is empty!")
+
+    def _post_order_traversal(self, node):
+        if node.left_node:
+            self._post_order_traversal(node.left_node)
+        
+        if node.right_node:
+            self._post_order_traversal(node.right_node)
+        
+        print(node.data)
+
 
 
 if __name__ == "__main__":
@@ -151,7 +166,7 @@ if __name__ == "__main__":
     bst.insert(14)
     bst.insert(19)
     bst.insert(10)
-    bst.in_order()
+    bst.post_order()
     print("----------------")
     bst.remove(10)
-    bst.in_order()
+    bst.post_order()
