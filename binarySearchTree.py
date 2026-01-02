@@ -126,6 +126,22 @@ class BinarySearchTree:
         if node.right_node:
             self._in_order_traversal(node.right_node)
 
+    def pre_order(self):
+        if self.root:
+            self._pre_order_traversal(self.root)
+        else:
+            print("Tree is empty!")
+        
+    def _pre_order_traversal(self, node):
+        print(node.data)
+
+        if node.left_node:
+            self._pre_order_traversal(node.left_node)
+        
+        if node.right_node:
+            self._pre_order_traversal(node.right_node)
+            
+
 
 if __name__ == "__main__":
     bst = BinarySearchTree()
