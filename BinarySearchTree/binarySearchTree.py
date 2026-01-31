@@ -19,6 +19,10 @@ class BinarySearchTree:
     def _insert_node(self, data, node):
         if data < node.data:
             if node.left_node:
+                """
+                Recursively inserts a new value into the binary search tree by comparing 
+                data with the current node and placing it in the appropriate left or right subtree.
+                """
                 self._insert_node(data, node.left_node)
             else:
                 node.left_node = Node(data=data, parent=node)
